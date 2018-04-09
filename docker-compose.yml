@@ -1,0 +1,12 @@
+version: '2'
+services:
+  graphql:
+    build: .
+    volumes:
+      - ./:/home/graphql
+      - /home/graphql/node_modules
+    ports:
+      - "3000:3000"
+      - "4000:4000"
+    privileged: true
+    command: bash -c 'npm run json:server & npm run dev:server'
